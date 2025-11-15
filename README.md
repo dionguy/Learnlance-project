@@ -1,6 +1,3 @@
-# Learnlance-project
-LearnLance is an online platform that serves as a connection between tutors and students in different courses accross the worl
-
 Learnlance
 ==========
 
@@ -28,7 +25,7 @@ To install Learnlance locally:
 
 .. code-block:: bash
 
-   git clone https://github.com/yourusername/learnlance.git
+   git clone https://github.com/dionguy/learnlance.git
    cd learnlance
    pip install -r requirements.txt
 
