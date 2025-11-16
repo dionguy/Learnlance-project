@@ -1,7 +1,7 @@
 Learnlance
 ==========
 
-An interactive learning platform designed to empower students, educators, and lifelong learners.
+An interactive learning platform designed to empower students, educators, and lifelong Learners
 
 Overview
 --------
