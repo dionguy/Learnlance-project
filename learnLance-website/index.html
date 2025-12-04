@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnLance - Connect with Tutors</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-green: #2ecc71;
+            --dark-green: #27ae60;
+            --light-green: #a3e4d7;
+            --glass-bg: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --text-dark: #2c3e50;
+            --text-light: #ecf0f1;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            /* BACKGROUND IMAGE - CHANGE THIS PATH IF NEEDED */
+            background-image: url /*('https://images.pexels.com/photos/590493/pexels-photo-590493.jpeg');*/
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.2);
+            position: relative;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .logo i {
+            font-size: 2rem;
+        }
+
+        .tagline {
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-left: 10px;
+            font-style: italic;
+        }
+
+        /* Main Content */
+        .main-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        /* Floating Toggle Buttons */
+        .role-toggle {
+            position: absolute;
+            top: 2rem;
+            display: flex;
+            gap: 1.5rem;
+            z-index: 10;
+        }
+
+        .toggle-btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .student-btn {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .tutor-btn {
+            background-color: #9b59b6;
+            color: white;
+        }
+
+        .toggle-btn.active {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        .toggle-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Glass Login Container */
+        .login-container {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 25px;
+            border: 1px solid var(--glass-border);
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s ease;
+        }
+
+        .login-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: white;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .login-header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .login-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-group i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px 15px 15px 50px;
+            border: none;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.25);
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.35);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 50px;
+            background-color: var(--primary-green);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+        }
+
+        .submit-btn:hover {
+            background-color: var(--dark-green);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(46, 204, 113, 0.6);
+        }
+
+        /* Footer Links */
+        .login-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: white;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .login-footer a {
+            color: var(--light-green);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .login-footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .role-toggle {
+                position: relative;
+                top: 0;
+                justify-content: center;
+                margin-bottom: 2rem;
+            }
+
+            .main-container {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .login-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .toggle-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            header {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .tagline {
+                margin-left: 0;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .login-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .toggle-btn {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Animation for form switching */
+        .fade-in {
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Instructions for adding wallpaper */
+        .instructions {
+            background-color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            color: var(--text-dark);
+        }
+
+        .instructions h3 {
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        .instructions code {
+            background-color: #f1f1f1;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            <span>LearnLance</span>
+            <span class="tagline">Connecting Students with Expert Tutors</span>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Floating Role Toggle Buttons -->
+        <div class="role-toggle">
+            <button class="toggle-btn student-btn active" id="studentBtn">
+                <i class="fas fa-user-graduate"></i>
+                Student Login
+            </button>
+            <button class="toggle-btn tutor-btn" id="tutorBtn">
+                <i class="fas fa-chalkboard-teacher"></i>
+                Tutor Login
+            </button>
+        </div>
+
+        <!-- Login Container (Glass Effect) -->
+        <div class="login-container fade-in">
+            <!-- Student Login Form (Default) -->
+            <div class="login-form" id="studentForm">
+                <div class="login-header">
+                    <h2>Student Login</h2>
+                    <p>Access your learning dashboard</p>
+                </div>
+
+                <form id="studentLoginForm">
+                    <div class="form-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" class="form-control" id="studentName" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" class="form-control" id="studentEmail" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" class="form-control" id="studentPassword" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-sign-in-alt"></i> Login as Student
+                    </button>
+                </form>
+
+                <div class="login-footer">
+                    <p>Don't have an account? <a href="#">Sign up as Student</a></p>
+                    <p><a href="#">Forgot Password?</a></p>
+                </div>
+            </div>
+
+            <!-- Tutor Login Form (Hidden by default) -->
+            <div class="login-form" id="tutorForm" style="display: none;">
+                <div class="login-header">
+                    <h2>Tutor Login</h2>
+                    <p>Access your tutor dashboard</p>
+                </div>
+
+                <form id="tutorLoginForm">
+                    <div class="form-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" class="form-control" id="tutorName" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" class="form-control" id="tutorEmail" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" class="form-control" id="tutorPassword" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-sign-in-alt"></i> Login as Tutor
+                    </button>
+                </form>
+
+                <div class="login-footer">
+                    <p>Want to become a tutor? <a href="#">Apply Now</a></p>
+                    <p><a href="#">Forgot Password?</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+    <script>
+        // DOM Elements
+        const studentBtn = document.getElementById('studentBtn');
+        const tutorBtn = document.getElementById('tutorBtn');
+        const studentForm = document.getElementById('studentForm');
+        const tutorForm = document.getElementById('tutorForm');
+        const studentLoginForm = document.getElementById('studentLoginForm');
+        const tutorLoginForm = document.getElementById('tutorLoginForm');
+        const loginContainer = document.querySelector('.login-container');
+
+        // Toggle between Student and Tutor Login
+        function showStudentForm() {
+            studentForm.style.display = 'block';
+            tutorForm.style.display = 'none';
+            studentBtn.classList.add('active');
+            tutorBtn.classList.remove('active');
+            loginContainer.classList.remove('fade-in');
+            void loginContainer.offsetWidth; // Trigger reflow
+            loginContainer.classList.add('fade-in');
+        }
+
+        function showTutorForm() {
+            studentForm.style.display = 'none';
+            tutorForm.style.display = 'block';
+            tutorBtn.classList.add('active');
+            studentBtn.classList.remove('active');
+            loginContainer.classList.remove('fade-in');
+            void loginContainer.offsetWidth; // Trigger reflow
+            loginContainer.classList.add('fade-in');
+        }
+
+        // Event Listeners for toggle buttons
+        studentBtn.addEventListener('click', showStudentForm);
+        tutorBtn.addEventListener('click', showTutorForm);
+
+        // Form Submission Handling
+        studentLoginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('studentName').value;
+            const email = document.getElementById('studentEmail').value;
+            
+            // In a real application, you would send this data to a server
+            alert(`Student login submitted!\nName: ${name}\nEmail: ${email}\n\nIn a real app, this would authenticate the user.`);
+            
+            // Reset form
+            studentLoginForm.reset();
+        });
+
+        tutorLoginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('tutorName').value;
+            const email = document.getElementById('tutorEmail').value;
+            
+            // In a real application, you would send this data to a server
+            alert(`Tutor login submitted!\nName: ${name}\nEmail: ${email}\n\nIn a real app, this would authenticate the user.`);
+            
+            // Reset form
+            tutorLoginForm.reset();
+        });
+
+        // Add a subtle floating animation to the toggle buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            // Example: Set a gradient background if no wallpaper is added
+            // You can remove or modify this
+            document.body.style.background = "linear-gradient(135deg, #1a2980 0%, #26d0ce 100%)";
+            
+            // Add floating animation to buttons
+            const buttons = document.querySelectorAll('.toggle-btn');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    if (!this.classList.contains('active')) {
+                        this.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
