@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnLance - Welcome</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            <span>LearnLance</span>
+            <span class="tagline">Connecting Students with Expert Tutors</span>
+        </div>
+        <div class="header-actions">
+            <button class="header-btn login-btn" id="headerLoginBtn">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </button>
+        </div>
+    </header>
+
+    <!-- WELCOME PAGE -->
+    <div class="welcome-container" id="welcomePage">
+        <div class="welcome-card">
+            <h1 class="welcome-title">Welcome to LearnLance</h1>
+            <p class="welcome-subtitle">Your Gateway to Personalized Learning</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="feature-title">Connect Instantly</h3>
+                    <p class="feature-desc">
+                        Find the perfect tutor or student match based on your learning style, 
+                        subject needs, and schedule preferences.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-title">Track Progress</h3>
+                    <p class="feature-desc">
+                        Monitor your learning journey with detailed analytics, progress reports, 
+                        and achievement milestones.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="feature-title">Flexible Scheduling</h3>
+                    <p class="feature-desc">
+                        Learn at your own pace with flexible scheduling options that fit 
+                        your busy lifestyle.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="welcome-message">
+                <p class="welcome-text">
+                    LearnLance bridges the gap between students seeking knowledge and tutors 
+                    sharing expertise. Whether you're looking to master a new subject, prepare 
+                    for exams, or share your knowledge with others, we provide the perfect 
+                    platform for educational connections.
+                </p>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="get-started-btn" id="getStartedBtn">
+                    <i class="fas fa-user-plus"></i>
+                    Get Started - Sign Up
+                </button>
+                
+                <div class="divider">
+                    <span>Already have an account?</span>
+                </div>
+                
+                <button class="secondary-btn" id="goToLoginBtn">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Login to Your Account
+                </button>
+            </div>
+            
+            <p class="stats">
+                Join over 50,000 students and 5,000 tutors in our learning community
+            </p>
+        </div>
+    </div>
+
+    <!-- SIGN-UP PAGE -->
+    <div class="signup-page" id="signupPage">
+        <button class="back-btn" id="backBtnFromSignup">
+            <i class="fas fa-arrow-left"></i>
+            Back to Welcome
+        </button>
+        
+        <!-- Role Selection -->
+        <div class="role-selection">
+            <h2>Choose Your Role</h2>
+            <p>Select how you want to join LearnLance</p>
+            
+            <div class="role-cards">
+                <div class="role-card student-role" id="studentRoleCard">
+                    <div class="role-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Student</h3>
+                    <p>Looking for expert tutors to help you learn</p>
+                    <button class="role-select-btn" data-role="student">Sign Up as Student</button>
+                </div>
+                
+                <div class="role-card tutor-role" id="tutorRoleCard">
+                    <div class="role-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Tutor</h3>
+                    <p>Share your knowledge and help students learn</p>
+                    <button class="role-select-btn" data-role="tutor">Sign Up as Tutor</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Student Sign-Up Form -->
+        <div class="signup-form" id="studentSignupForm">
+            <div class="form-header">
+                <h2><i class="fas fa-user-graduate"></i> Student Sign Up</h2>
+                <p>Create your student account</p>
+            </div>
+
+            <form id="studentSignupFormContent">
+                <div class="form-group">
+                    <label for="studentFullName"><i class="fas fa-user"></i> Full Name</label>
+                    <input type="text" class="form-control" id="studentFullName" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="studentEmail"><i class="fas fa-envelope"></i> Email Address</label>
+                        <input type="email" class="form-control" id="studentEmail" placeholder="Enter your email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="studentPhone"><i class="fas fa-phone"></i> Phone Number</label>
+                        <input type="tel" class="form-control" id="studentPhone" placeholder="Enter your phone number">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="studentPassword"><i class="fas fa-lock"></i> Password</label>
+                        <input type="password" class="form-control" id="studentPassword" placeholder="Create a password" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="studentConfirmPassword"><i class="fas fa-lock"></i> Confirm Password</label>
+                        <input type="password" class="form-control" id="studentConfirmPassword" placeholder="Confirm password" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="studentInterests"><i class="fas fa-book"></i> Subjects of Interest</label>
+                    <select class="form-control" id="studentInterests" multiple>
+                        <option value="math">Mathematics</option>
+                        <option value="science">Science</option>
+                        <option value="english">English</option>
+                        <option value="programming">Programming</option>
+                        <option value="history">History</option>
+                        <option value="art">Art & Design</option>
+                    </select>
+                    <small>Hold Ctrl to select multiple subjects</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="studentEducation"><i class="fas fa-graduation-cap"></i> Education Level</label>
+                    <select class="form-control" id="studentEducation" required>
+                        <option value="">Select your level</option>
+                        <option value="highschool">High School</option>
+                        <option value="undergrad">Undergraduate</option>
+                        <option value="grad">Graduate</option>
+                        <option value="professional">Professional</option>
+                    </select>
+                </div>
+                
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="studentTerms" required>
+                    <label for="studentTerms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-user-plus"></i> Create Student Account
+                    </button>
+                    <button type="button" class="secondary-btn" id="backToRoleSelection">
+                        <i class="fas fa-arrow-left"></i> Back to Role Selection
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Tutor Sign-Up Form -->
+        <div class="signup-form" id="tutorSignupForm">
+            <div class="form-header">
+                <h2><i class="fas fa-chalkboard-teacher"></i> Tutor Sign Up</h2>
+                <p>Create your tutor account</p>
+            </div>
+
+            <form id="tutorSignupFormContent">
+                <div class="form-group">
+                    <label for="tutorFullName"><i class="fas fa-user"></i> Full Name</label>
+                    <input type="text" class="form-control" id="tutorFullName" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="tutorEmail"><i class="fas fa-envelope"></i> Email Address</label>
+                        <input type="email" class="form-control" id="tutorEmail" placeholder="Enter your email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tutorPhone"><i class="fas fa-phone"></i> Phone Number</label>
+                        <input type="tel" class="form-control" id="tutorPhone" placeholder="Enter your phone number">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="tutorPassword"><i class="fas fa-lock"></i> Password</label>
+                        <input type="password" class="form-control" id="tutorPassword" placeholder="Create a password" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tutorConfirmPassword"><i class="fas fa-lock"></i> Confirm Password</label>
+                        <input type="password" class="form-control" id="tutorConfirmPassword" placeholder="Confirm password" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tutorExpertise"><i class="fas fa-book"></i> Areas of Expertise</label>
+                    <select class="form-control" id="tutorExpertise" multiple required>
+                        <option value="math">Mathematics</option>
+                        <option value="science">Science</option>
+                        <option value="english">English</option>
+                        <option value="programming">Programming</option>
+                        <option value="history">History</option>
+                        <option value="art">Art & Design</option>
+                    </select>
+                    <small>Hold Ctrl to select multiple subjects</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tutorQualifications"><i class="fas fa-graduation-cap"></i> Qualifications</label>
+                    <textarea class="form-control" id="tutorQualifications" placeholder="List your degrees, certifications, and experience" rows="3"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tutorExperience"><i class="fas fa-briefcase"></i> Years of Experience</label>
+                    <select class="form-control" id="tutorExperience" required>
+                        <option value="">Select experience</option>
+                        <option value="0-2">0-2 years</option>
+                        <option value="3-5">3-5 years</option>
+                        <option value="6-10">6-10 years</option>
+                        <option value="10+">10+ years</option>
+                    </select>
+                </div>
+                
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="tutorTerms" required>
+                    <label for="tutorTerms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-user-plus"></i> Create Tutor Account
+                    </button>
+                    <button type="button" class="secondary-btn" id="backToRoleSelectionTutor">
+                        <i class="fas fa-arrow-left"></i> Back to Role Selection
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- LOGIN PAGE -->
+    <div class="login-page" id="loginPage">
+        <button class="back-btn" id="backBtnFromLogin">
+            <i class="fas fa-arrow-left"></i>
+            Back to Welcome
+        </button>
+        
+        <!-- Floating Role Toggle Buttons -->
+        <div class="role-toggle">
+            <button class="toggle-btn student-btn active" id="studentBtn">
+                <i class="fas fa-user-graduate"></i>
+                Student Login
+            </button>
+            <button class="toggle-btn tutor-btn" id="tutorBtn">
+                <i class="fas fa-chalkboard-teacher"></i>
+                Tutor Login
+            </button>
+        </div>
+
+        <!-- Glass Login Container -->
+        <div class="login-container fade-in">
+            <!-- Student Login Form -->
+            <div class="login-form" id="studentLoginForm">
+                <div class="login-header">
+                    <h2>Student Login</h2>
+                    <p>Access your learning dashboard</p>
+                </div>
+
+                <form id="studentLoginFormContent">
+                    <div class="form-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" class="form-control" id="studentLoginEmail" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" class="form-control" id="studentLoginPassword" placeholder="Password" required>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="rememberStudent">
+                        <label for="rememberStudent">Remember me</label>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-sign-in-alt"></i> Login as Student
+                    </button>
+                </form>
+
+                <div class="login-footer">
+                    <p>Don't have an account? <a href="#" id="signupFromStudentLogin">Sign up as Student</a></p>
+                    <p><a href="#" id="forgotPasswordStudent">Forgot Password?</a></p>
+                </div>
+            </div>
+
+            <!-- Tutor Login Form -->
+            <div class="login-form" id="tutorLoginForm" style="display: none;">
+                <div class="login-header">
+                    <h2>Tutor Login</h2>
+                    <p>Access your tutor dashboard</p>
+                </div>
+
+                <form id="tutorLoginFormContent">
+                    <div class="form-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" class="form-control" id="tutorLoginEmail" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" class="form-control" id="tutorLoginPassword" placeholder="Password" required>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="rememberTutor">
+                        <label for="rememberTutor">Remember me</label>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-sign-in-alt"></i> Login as Tutor
+                    </button>
+                </form>
+
+                <div class="login-footer">
+                    <p>Want to become a tutor? <a href="#" id="signupFromTutorLogin">Apply Now</a></p>
+                    <p><a href="#" id="forgotPasswordTutor">Forgot Password?</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
